@@ -34,4 +34,28 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def is_prime(number):
+    """Return True if number is prime, else False."""
+    if number < 2:
+        return False
+
+    # check divisors up to sqrt(number)
+    import math
+    limit = int(math.isqrt(number))
+    for i in range(2, limit + 1):
+        if number % i == 0:
+            return False
+    return True
+
+
+if __name__ == "__main__":
+    try:
+        number = int(input("Enter a number: "))
+    except ValueError:
+        print("Invalid input.")
+    else:
+        if is_prime(number):
+            print(f"{number} is a prime number.")
+        else:
+            print(f"{number} is NOT a prime number.")
 
